@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 
 @Composable
-fun LoginScreen(onLogin: (String, String) -> Unit) {
+fun LoginScreen(uiState: LoginUiState, onLogin: (String, String) -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column(
@@ -18,7 +18,7 @@ fun LoginScreen(onLogin: (String, String) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Login Screen", style = MaterialTheme.typography.h4)
+        Text(text = uiState.welcomeMessage, style = MaterialTheme.typography.h4)
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(
             value = email,
